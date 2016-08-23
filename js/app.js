@@ -95,4 +95,8 @@ function update() {
     console.log("You got it!");
     console.log(score.toString());
 	}
+
+  if (score == 12) {
+    console.log('You Win!!!')
+  }
 }
