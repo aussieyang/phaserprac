@@ -32,18 +32,24 @@ function create() {
 
   // Player
   player = game.add.sprite(32, game.world.height - 150, 'dude');
-  // player aniamtions using spritesheet and applies game physics
-  player.animations.add('left', [0, 1, 2, 3], 10, true);
-  player.animations.add('right', [5, 6, 7, 8], 10, true);
-  game.physics.arcade.enable(player);
-
-  // Player physics properties. Give the little guy a slight bounce.
-  player.body.bounce.y = 0.2;
-  player.body.gravity.y = 300;
-  player.body.collideWorldBounds = true;
+    // player animations using spritesheet and applies game physics
+    player.animations.add('left', [0, 1, 2, 3], 10, true);
+    player.animations.add('right', [5, 6, 7, 8], 10, true);
+    game.physics.arcade.enable(player);
+    // Player physics properties. Give the little guy a slight bounce.
+    player.body.bounce.y = 0.2;
+    player.body.gravity.y = 300;
+    player.body.collideWorldBounds = true;
 
   // Enemy
-  enemy = game.add.sprite(750, 20, 'baddie')
+  enemy1 = game.add.sprite(750, 20, 'baddie')
+    // Enemy animations using spritesheet and applies game physics
+    enemy1.animations.add('left', [0, 1], 10, true);
+    enemy1.animations.add('right', [2, 3], 10, true);
+    game.physics.arcade.enable(enemy1);
+    // Enemy physics properties.
+    enemy1.body.bounce.y = 0.2;
+    enemy1.body.gravity.y = 500;
 
   // Creating keyboard entry
   cursors = game.input.keyboard.createCursorKeys();
