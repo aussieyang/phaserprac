@@ -12,8 +12,6 @@ function preload() {
 
 function create() {
   game.physics.startSystem(Phaser.Physics.ARCADE);
-  //  Set the world (global) gravity
-  game.physics.arcade.gravity.y = 100;
   game.add.sprite(0, 0, 'sky');
 
   // Making group of platforms
