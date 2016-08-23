@@ -96,7 +96,7 @@ function update() {
     console.log(score.toString());
     // Win at 12 stars collected (ask students - why is this repeating?)
     if (score == 12) {
-      game.destroy();
+      game.pause = true; // Have this commented out first
       console.log('You Win!!!')
     }
 	}
