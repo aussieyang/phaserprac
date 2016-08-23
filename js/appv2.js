@@ -8,6 +8,7 @@ function preload() {
   game.load.image('ground', 'assets/platform.png');
   game.load.image('star', 'assets/star.png');
   game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+  game.load.spritesheet('baddie', 'assets/baddie.png', 32, 32);
 }
 
 function create() {
@@ -40,6 +41,9 @@ function create() {
   player.body.bounce.y = 0.2;
   player.body.gravity.y = 300;
   player.body.collideWorldBounds = true;
+
+  // Enemy
+  enemy = game.add.sprite(32, 0, 'baddie')
 
   // Creating keyboard entry
   cursors = game.input.keyboard.createCursorKeys();
