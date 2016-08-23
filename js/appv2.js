@@ -129,12 +129,12 @@ function update() {
     score = score + 1;
     // Reflecting in the text
     scoretext.setText(score);
-    console.log("You got it!");
-    console.log(score.toString());
-    // Win at 12 stars collected (ask students - why is this repeating?)
-    if (score == 12) {
-      game.pause = true; // Have this commented out first
-      console.log('You Win!!!')
-    }
+
+    // Create new star
+    stars.create(50, 0, 'star');
+    //  Let gravity do its thing
+    star.body.gravity.y = 200;
+    //  This just gives each star a slightly random bounce value
+    star.body.bounce.y = 0.7 + Math.random() * 0.2;
 	}
 }
