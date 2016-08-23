@@ -93,5 +93,6 @@ function update() {
   	star.kill();
     score = score + 1;
     console.log("You got it!");
+    console.log(score.toString());
 	}
 }
