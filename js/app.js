@@ -1,8 +1,8 @@
 console.log('hey hey it works');
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-var platforms
-var cursors
+// var platforms
+// var cursors
 
 function preload() {
   game.load.image('sky', 'assets/sky.png');
