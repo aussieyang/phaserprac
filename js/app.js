@@ -91,6 +91,7 @@ function update() {
   function collectStar (player, star) {
  	 	// Removes the star from the screen
   	star.kill();
-    score = score + 1
+    score = score + 1;
+    console.log(score);
 	}
 }
