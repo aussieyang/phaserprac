@@ -50,6 +50,7 @@ function create() {
     // Enemy physics properties.
     enemy1.body.bounce.y = 0.2;
     enemy1.body.gravity.y = 500;
+    enemy1.body.collideWorldBounds = true;
 
   // Creating keyboard entry
   cursors = game.input.keyboard.createCursorKeys();
