@@ -1,8 +1,7 @@
 console.log('hey hey it works');
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-// var platforms
-// var cursors
+var score = 0
 
 function preload() {
   game.load.image('sky', 'assets/sky.png');
@@ -44,6 +43,19 @@ function create() {
 
   // Creating keyboard entry
   cursors = game.input.keyboard.createCursorKeys();
+
+  // Creating stars
+  stars = game.add.physicsGroup();
+  stars.enableBody = true;
+  //  Here we'll create 12 of them evenly spaced apart
+  for (var i = 0; i < 12; i++){
+    //  Create a star inside of the 'stars' group
+    var star = stars.create(i * 70, 0, 'star');
+    //  Let gravity do its thing
+    star.body.gravity.y = 6;
+    //  This just gives each star a slightly random bounce value
+    star.body.bounce.y = 0.7 + Math.random() * 0.2;
+  }
 }
 
 function update() {
@@ -66,8 +78,19 @@ function update() {
       player.frame = 4;
     }
   //  Allow the player to jump if they are touching the ground.
-    if (cursors.up.isDown && player.body.touching.down){
-      player.body.velocity.y = -350;
-    }
-
+  if (cursors.up.isDown && player.body.touching.down){
+    player.body.velocity.y = -350;
+  }
+  // Collide with stars
+  game.physics.arcade.collide(stars, platforms);
+  // Calls collectStar function when overlaps
+  game.physics.arcade.overlap(player, stars, collectStar, null, this);
+  // Stars collide with platforms
+  game.physics.arcade.collide(stars, platforms);
+  // defining collectStar function
+  function collectStar (player, star) {
+ 	 	// Removes the star from the screen
+  	star.kill();
+    score = score + 1
+	}
 }
