@@ -104,7 +104,10 @@ function update() {
   function collectStar (player, star) {
  	 	// Removes the star from the screen
   	star.kill();
+    // Updating score variable
     score = score + 1;
+    // Reflecting in the text
+    scoretext.setText(score);
     console.log("You got it!");
     console.log(score.toString());
     // Win at 12 stars collected (ask students - why is this repeating?)
