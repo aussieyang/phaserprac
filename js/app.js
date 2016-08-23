@@ -92,6 +92,6 @@ function update() {
  	 	// Removes the star from the screen
   	star.kill();
     score = score + 1;
-    console.log(score);
+    console.log("You got it!");
 	}
 }
