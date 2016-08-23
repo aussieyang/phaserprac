@@ -60,14 +60,14 @@ function create() {
 
   // Setting style for text
   var style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
-    //  The Text is positioned at 0, 100
-    scorelabel = game.add.text(0, 0, "Your score is: ", style);
-    scoretext = game.add.text(0, 0, score, style);
+    //  The Text is positioned at 0, 0 within textbound
+    scorelabel = game.add.text(-300, 0, "Your score is: ", style);
+    scoretext = game.add.text(300, 0, score, style);
     scorelabel.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     scoretext.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
-    //  We'll set the bounds to be from x0, y100 and be 800px wide by 100px high
-    scorelabel.setTextBounds(0, 500, 800, 100);
-    scoretext.setTextBounds(0, 500, 800, 100);
+    //  We'll set the bounds to be from x0, y550 and be 800px wide by 100px high
+    scorelabel.setTextBounds(0, 550, 800, 100);
+    scoretext.setTextBounds(0, 550, 800, 100);
 
 }
 
