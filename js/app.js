@@ -12,6 +12,8 @@ function preload() {
 
 function create() {
   game.physics.startSystem(Phaser.Physics.ARCADE);
+  //  Set the world (global) gravity
+  game.physics.arcade.gravity.y = 100;
   game.add.sprite(0, 0, 'sky');
 
   // Making group of platforms
@@ -79,7 +81,7 @@ function update() {
     }
   //  Allow the player to jump if they are touching the ground.
   if (cursors.up.isDown && player.body.touching.down){
-    player.body.velocity.y = -350;
+    player.body.velocity.y = -300;
   }
   // Collide with stars
   game.physics.arcade.collide(stars, platforms);
