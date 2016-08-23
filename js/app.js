@@ -57,6 +57,15 @@ function create() {
     //  This just gives each star a slightly random bounce value
     star.body.bounce.y = 0.7 + Math.random() * 0.2;
   }
+
+  // Setting style for text
+  var style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
+    //  The Text is positioned at 0, 100
+    scorelabel = game.add.text(0, 0, "0", style);
+    scorelabel.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
+    //  We'll set the bounds to be from x0, y100 and be 800px wide by 100px high
+    scorelabel.setTextBounds(0, 100, 800, 100);
+
 }
 
 function update() {
