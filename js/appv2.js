@@ -84,6 +84,8 @@ function create() {
 function update() {
   // Collide the player and the stars with the platforms
   game.physics.arcade.collide(player, platforms);
+  // Collide the enemies and the stars with the platforms
+  game.physics.arcade.collide(enemy1, platforms);
   // Reset the player’s velocity (movement) if no events
   player.body.velocity.x = 0;
   // Left key pressed
