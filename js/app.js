@@ -94,9 +94,9 @@ function update() {
     score = score + 1;
     console.log("You got it!");
     console.log(score.toString());
+    // Win at 12 stars collected
+    if (score == 12) {
+      console.log('You Win!!!')
+    }
 	}
-
-  if (score == 12) {
-    console.log('You Win!!!')
-  }
 }
