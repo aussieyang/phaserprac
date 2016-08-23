@@ -1,6 +1,8 @@
 console.log('hey hey it works');
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var platforms
+var cursors
 
 function preload() {
   game.load.image('sky', 'assets/sky.png');
@@ -14,7 +16,7 @@ function create() {
   game.add.sprite(0, 0, 'sky');
 
   // Making group of platforms
-  var platforms = game.add.group();
+  platforms = game.add.group();
   platforms.enableBody = true;
 
   // Ground
@@ -41,7 +43,7 @@ function create() {
   player.body.collideWorldBounds = true;
 
   // Creating keyboard entry
-  var cursors = game.input.keyboard.createCursorKeys();
+  cursors = game.input.keyboard.createCursorKeys();
 }
 
 function update() {
