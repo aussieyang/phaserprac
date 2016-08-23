@@ -61,8 +61,8 @@ function create() {
   // Setting style for text
   var style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
     //  The Text is positioned at these coorindates within textbound
-    scorelabel = game.add.text(-50, 0, "Your score is: ", style);
-    scoretext = game.add.text(50, 0, score, style);
+    scorelabel = game.add.text(-55, 0, "Your score is: ", style);
+    scoretext = game.add.text(55, 0, score, style);
     scorelabel.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     scoretext.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     //  We'll set the bounds to be from x0, y520 (top down) and be 800px wide by 100px high
