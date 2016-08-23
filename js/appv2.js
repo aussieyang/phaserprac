@@ -43,7 +43,7 @@ function create() {
   player.body.collideWorldBounds = true;
 
   // Enemy
-  enemy = game.add.sprite(32, 0, 'baddie')
+  enemy = game.add.sprite(750, 20, 'baddie')
 
   // Creating keyboard entry
   cursors = game.input.keyboard.createCursorKeys();
