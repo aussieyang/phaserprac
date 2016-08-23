@@ -8,6 +8,7 @@ function preload() {
   game.load.image('ground', 'assets/platform.png');
   game.load.image('star', 'assets/star.png');
   game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+  game.load.spritesheet('baddie', 'assets/baddie.png', 32, 32);
 }
 
 function create() {
@@ -52,7 +53,7 @@ function create() {
     //  Create a star inside of the 'stars' group
     var star = stars.create(i * 70, 0, 'star');
     //  Let gravity do its thing
-    star.body.gravity.y = 6;
+    star.body.gravity.y = 200;
     //  This just gives each star a slightly random bounce value
     star.body.bounce.y = 0.7 + Math.random() * 0.2;
   }
