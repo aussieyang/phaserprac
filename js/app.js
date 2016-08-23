@@ -67,7 +67,7 @@ function create() {
     scoretext.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     //  We'll set the bounds to be from x0, y100 and be 800px wide by 100px high
     scorelabel.setTextBounds(0, 500, 800, 100);
-    scorelabel.setTextBounds(0, 500, 800, 100);
+    scoretext.setTextBounds(0, 500, 800, 100);
 
 }
 
