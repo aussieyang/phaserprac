@@ -56,6 +56,10 @@ function create() {
     //  This just gives each star a slightly random bounce value
     star.body.bounce.y = 0.7 + Math.random() * 0.2;
   }
+
+  if (score == 12) {
+    console.log('You Win!!!')
+  }
 }
 
 function update() {
@@ -99,8 +103,4 @@ function update() {
     //   console.log('You Win!!!')
     // }
 	}
-}
-
-if (score == 12) {
-  console.log('You Win!!!')
 }
