@@ -42,7 +42,7 @@ function create() {
     player.body.collideWorldBounds = true;
 
   // Enemy
-  enemy1 = game.add.sprite(750, 20, 'baddie')
+  enemy1 = game.add.sprite(760, 20, 'baddie')
     // Enemy animations using spritesheet and applies game physics
     enemy1.animations.add('left', [0, 1], 10, true);
     enemy1.animations.add('right', [2, 3], 10, true);
@@ -88,6 +88,7 @@ function update() {
   game.physics.arcade.collide(enemy1, platforms);
   // Reset the player’s velocity (movement) if no events
   player.body.velocity.x = 0;
+
   // Left key pressed
   if (cursors.left.isDown){
         // Move to the left
@@ -106,6 +107,13 @@ function update() {
   if (cursors.up.isDown && player.body.touching.down){
     player.body.velocity.y = -300;
   }
+
+  // Enemy AI
+  if (enemy1.x < 759){
+    enemy1.animations.play('left');
+    enemy1.body.velocity.x = 120;
+  }
+
   // Collide with stars
   game.physics.arcade.collide(stars, platforms);
   // Calls collectStar function when overlaps
