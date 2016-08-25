@@ -93,8 +93,8 @@ function create() {
     scorelabel.setTextBounds(0, 520, 800, 100);
     scoretext.setTextBounds(0, 520, 800, 100);
     //  Doing the same for lives count
-    lifelabel = game.add.text(0, 0, "Lives: ", style);
-    lifetext = game.add.text(20, 0, life, style);
+    lifelabel = game.add.text(-200, 0, "Lives: ", style);
+    lifetext = game.add.text(-100, 0, life, style);
     lifelabel.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     lifetext.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     //  We'll set the bounds to be from x0, y520 (top down) and be 800px wide by 100px high
