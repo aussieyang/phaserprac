@@ -33,7 +33,7 @@ function create() {
   platforms.enableBody = true;
 
   // Ground
-  var ground = platforms.create(0, game.world.height - 250, 'ground');
+  var ground = platforms.create(0, game.world.height - 150, 'ground');
   ground.scale.setTo(2, 2);
   ground.body.immovable = true;
 
