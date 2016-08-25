@@ -123,7 +123,10 @@ function update() {
   game.physics.arcade.overlap(player, stars, collectStar, null, this);
   // Stars collide with platforms
   game.physics.arcade.collide(stars, platforms);
-  // defining collectStar function
+  // Player collides with enemy1
+  game.physics.arcade.collide(player, enemy1, gameOver)
+
+  // Defining collectStar function
   function collectStar (player, star) {
  	 	// Removes the star from the screen
   	star.kill();
@@ -139,4 +142,10 @@ function update() {
     //  This just gives each star a slightly random bounce value
     star.body.bounce.y = 0.7 + Math.random() * 0.2;
 	}
+
+  // Defining gameOver
+  function gameOver (player, enemy1) {
+    // Everything falls off
+    game.physics.arcade.checkCollision.down = false
+  }
 }
