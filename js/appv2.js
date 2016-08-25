@@ -169,7 +169,7 @@ function update() {
   game.physics.arcade.collide(stars, platforms);
   // Player triggers loseLife when contact with enemies
   game.physics.arcade.overlap(player, enemy1, loseLife, null, this)
-  game.physics.arcade.overlap(player, enemy2, loseLife, null, this)
+  game.physics.arcade.overlap(player, enemy2, loseLifeLeft, null, this)
   game.physics.arcade.overlap(player, enemy3, loseLife, null, this)
 }
 
@@ -190,10 +190,18 @@ function collectStar (player, star) {
 
 
 // Defining loseLife
-function loseLife (player, enemy1) {
+function loseLife (player, enemy) {
   console.log('loselife working again');
-  enemy1.kill();
+  enemy.kill();
   life = life - 1;
   lifetext.setText(life);
-  enemy1.reset(760, 20);
+  enemy.reset(760, 20);
+}
+
+function loseLifeLeft (player, enemy) {
+  console.log('loselife working again');
+  enemy.kill();
+  life = life - 1;
+  lifetext.setText(life);
+  enemy.reset(50, 20);
 }
