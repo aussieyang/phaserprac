@@ -63,7 +63,7 @@ function create() {
     enemy2.body.gravity.y = 500;
     enemy2.body.collideWorldBounds = true;
 
-  enemy3 = game.add.sprite(400, 20, 'baddie')
+  enemy3 = game.add.sprite(280, 20, 'baddie')
     // Enemy animations using spritesheet and applies game physics
     enemy3.animations.add('left', [0, 1], 10, true);
     enemy3.animations.add('right', [2, 3], 10, true);
@@ -114,6 +114,8 @@ function update() {
   game.physics.arcade.collide(player, platforms);
   // Collide the enemies and the stars with the platforms
   game.physics.arcade.collide(enemy1, platforms);
+  game.physics.arcade.collide(enemy2, platforms);
+  game.physics.arcade.collide(enemy3, platforms);
   // Reset the player’s velocity (movement) if no events
   player.body.velocity.x = 0;
 
