@@ -33,7 +33,7 @@ function create() {
   platforms.enableBody = true;
 
   // Ground
-  var ground = platforms.create(0, game.world.height - 120, 'ground');
+  var ground = platforms.create(0, game.world.height - 150, 'ground');
   ground.scale.setTo(2, 2);
   ground.body.immovable = true;
 
@@ -44,7 +44,7 @@ function create() {
   ledge.body.immovable = true;
 
   // Player
-  player = game.add.sprite(32, game.world.height - 180, 'dude');
+  player = game.add.sprite(32, game.world.height - 200, 'dude');
     // player animations using spritesheet and applies game physics
     player.animations.add('left', [0, 1, 2, 3], 10, true);
     player.animations.add('right', [5, 6, 7, 8], 10, true);
