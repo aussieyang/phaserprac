@@ -15,20 +15,6 @@ function preload() {
 
 function create() {
   game.physics.startSystem(Phaser.Physics.ARCADE);
-
-  // Add margin to the world, so the camera can move (for quake effect)
-  var margin = 50;
-  // Set the world's bounds according to the given margin
-  var x = -margin;
-  var y = -margin;
-  var w = game.world.width + margin * 2;
-  var h = game.world.height + margin * 2;
-  // Not necessary to increase height, we do it to keep uniformity
-  game.world.setBounds(x, y, w, h);
-  // Make sure camera is at position (0,0)
-  game.world.camera.position.set(0);
-  // Invisible walls
-
   game.add.sprite(0, 0, 'sky');
 
   // Making group of platforms
@@ -165,37 +151,11 @@ function collectStar (player, star) {
   star.body.bounce.y = 0.7 + Math.random() * 0.2;
 }
 
-// Quake!!
-function addQuake() {
-  // Define the camera offset for the quake
-  var rumbleOffset = 5;
-  // Move according to the camera's current position
-  var properties = {
-    x: game.camera.x - rumbleOffset
-  };
-  // Really fast movement
-  var duration = 100;
-  // Repeat
-  var repeat = 15;
-  // Use bounce in-out to soften it a little bit
-  var ease = Phaser.Easing.Bounce.InOut;
-  var autoStart = false;
-  // we want to go back to the original position
-  var yoyo = true;
-  var quake = game.add.tween(game.camera)
-    .to(properties, duration, ease, autoStart, 0, 4, yoyo);
-  // Let the earthquake begin!
-  quake.start();
-  game.world.camera.position.set(0);
-}
 
 // Defining loseLife
 function loseLife (player, enemy1) {
-  executed = false;
-  addQuake();
   if (!executed) {
     life = life - 1;
     lifetext.setText(life);
-    executed = true;
   }
 }
