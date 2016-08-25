@@ -63,7 +63,7 @@ function create() {
     enemy2.body.gravity.y = 500;
     enemy2.body.collideWorldBounds = true;
 
-  enemy3 = game.add.sprite(280, 20, 'baddie')
+  enemy3 = game.add.sprite(320, 20, 'baddie')
     // Enemy animations using spritesheet and applies game physics
     enemy3.animations.add('left', [0, 1], 10, true);
     enemy3.animations.add('right', [2, 3], 10, true);
@@ -156,10 +156,10 @@ function update() {
   if (enemy3.x > 799){
     enemy3.animations.play('left');
     enemy3.body.velocity.x = -120;
-  } else if (enemy1.x < 21) {
+  } else if (enemy1.x < 200) {
     enemy3.animations.play('right');
     enemy3.body.velocity.x = 120;
-  } 
+  }
 
   // Collide with stars
   game.physics.arcade.collide(stars, platforms);
