@@ -3,7 +3,6 @@ console.log('hey hey it works');
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 var score = 0;
 var life = 3;
-var executed = false;
 
 function preload() {
   game.load.image('sky', 'assets/sky.png');
@@ -155,10 +154,8 @@ function collectStar (player, star) {
 // Defining loseLife
 function loseLife (player, enemy1) {
   console.log('loselife working');
-  if (!executed) {
-    enemy1.kill();
-    life = life - 1;
-    lifetext.setText(life);
-    enemy1.revive(760, 20);
-  }
+  enemy1.kill();
+  life = life - 1;
+  lifetext.setText(life);
+  enemy1.reset(760, 20);
 }
