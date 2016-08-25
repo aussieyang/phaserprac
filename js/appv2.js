@@ -191,6 +191,7 @@ function addQuake() {
 
 // Defining loseLife
 function loseLife (player, enemy1) {
+  executed = false;
   addQuake();
   if (!executed) {
     life = life - 1;
