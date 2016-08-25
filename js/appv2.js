@@ -123,8 +123,8 @@ function update() {
   game.physics.arcade.overlap(player, stars, collectStar, null, this);
   // Stars collide with platforms
   game.physics.arcade.collide(stars, platforms);
-  // Player collides with enemy1
-  game.physics.arcade.collide(player, enemy1, gameOver, null, this)
+  // Player triggers gameover when contact with enemy1
+  game.physics.arcade.overlap(player, enemy1, gameOver, null, this)
 
   // Defining collectStar function
   function collectStar (player, star) {
