@@ -13,6 +13,19 @@ function preload() {
 
 function create() {
   game.physics.startSystem(Phaser.Physics.ARCADE);
+
+  // Add margin to the world, so the camera can move (for quake effect)
+  var margin = 50;
+  // Set the world's bounds according to the given margin
+  var x = -margin;
+  var y = -margin;
+  var w = game.world.width + margin * 2;
+  var h = game.world.height + margin * 2;
+  // Not necessary to increase height, we do it to keep uniformity
+  game.world.setBounds(x, y, w, h);
+  // Make sure camera is at position (0,0)
+  game.world.camera.position.set(0);
+
   game.add.sprite(0, 0, 'sky');
 
   // Making group of platforms
@@ -142,12 +155,38 @@ function update() {
     //  This just gives each star a slightly random bounce value
     star.body.bounce.y = 0.7 + Math.random() * 0.2;
 	}
+}
 
-  // Defining gameOver
-  function gameOver (player, enemy1) {
-    console.log('gameOver triggered');
-    // Player falls off
-    player.body.gravity.y = 500;
-    player.body.collideWorldBounds = false;
-  }
+// Quake!!
+function addQuake() {
+  // Define the camera offset for the quake
+  var rumbleOffset = 10;
+  // Move according to the camera's current position
+  var properties = {
+    x: game.camera.x - rumbleOffset
+  };
+  // Really fast movement
+  var duration = 100;
+  // Repeat
+  var repeat = 4;
+  // Use bounce in-out to soften it a little bit
+  var ease = Phaser.Easing.Bounce.InOut;
+  var autoStart = false;
+  // Delay because we will run it indefinitely
+  var delay = 1000;
+  // we want to go back to the original position
+  var yoyo = true;
+  var quake = game.add.tween(game.camera)
+    .to(properties, duration, ease, autoStart, delay, 4, yoyo);
+  // Recursion to run indefinitely
+  quake.onComplete.addOnce(addQuake);
+  // Let the earthquake begin!
+  quake.start();
+}
+
+// Defining gameOver
+function gameOver (player, enemy1) {
+  console.log('gameOver triggered');
+  // Quake!
+  addQuake();
 }
