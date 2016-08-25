@@ -148,17 +148,17 @@ function update() {
   }
   if (enemy2.x > 200){
     enemy2.animations.play('left');
-    enemy2.body.velocity.x = -120;
+    enemy2.body.velocity.x = -80;
   } else if (enemy2.x < 21) {
     enemy2.animations.play('right');
-    enemy2.body.velocity.x = 120;
+    enemy2.body.velocity.x = 80;
   }
   if (enemy3.x > 759){
     enemy3.animations.play('left');
-    enemy3.body.velocity.x = -120;
+    enemy3.body.velocity.x = -150;
   } else if (enemy3.x < 201) {
     enemy3.animations.play('right');
-    enemy3.body.velocity.x = 120;
+    enemy3.body.velocity.x = 150;
   }
 
   // Collide with stars
@@ -167,8 +167,10 @@ function update() {
   game.physics.arcade.overlap(player, stars, collectStar, null, this);
   // Stars collide with platforms
   game.physics.arcade.collide(stars, platforms);
-  // Player triggers loseLife when contact with enemy1
+  // Player triggers loseLife when contact with enemies
   game.physics.arcade.overlap(player, enemy1, loseLife, null, this)
+  game.physics.arcade.overlap(player, enemy2, loseLife, null, this)
+  game.physics.arcade.overlap(player, enemy3, loseLife, null, this)
 }
 
 // Defining collectStar function
