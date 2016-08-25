@@ -16,17 +16,17 @@ function preload() {
 function create() {
   game.physics.startSystem(Phaser.Physics.ARCADE);
 
-  // Add margin to the world, so the camera can move (for quake effect)
-  var margin = 50;
-  // Set the world's bounds according to the given margin
-  var x = -margin;
-  var y = -margin;
-  var w = game.world.width + margin * 2;
-  var h = game.world.height + margin * 2;
-  // Not necessary to increase height, we do it to keep uniformity
-  game.world.setBounds(x, y, w, h);
-  // Make sure camera is at position (0,0)
-  game.world.camera.position.set(0);
+  // // Add margin to the world, so the camera can move (for quake effect)
+  // var margin = 50;
+  // // Set the world's bounds according to the given margin
+  // var x = -margin;
+  // var y = -margin;
+  // var w = game.world.width + margin * 2;
+  // var h = game.world.height + margin * 2;
+  // // Not necessary to increase height, we do it to keep uniformity
+  // game.world.setBounds(x, y, w, h);
+  // // Make sure camera is at position (0,0)
+  // game.world.camera.position.set(0);
 
   game.add.sprite(0, 0, 'sky');
 
