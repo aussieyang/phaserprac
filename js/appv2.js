@@ -168,7 +168,7 @@ function collectStar (player, star) {
 // Quake!!
 function addQuake() {
   // Define the camera offset for the quake
-  var rumbleOffset = 0;
+  var rumbleOffset = 5;
   // Move according to the camera's current position
   var properties = {
     x: game.camera.x - rumbleOffset
@@ -176,7 +176,7 @@ function addQuake() {
   // Really fast movement
   var duration = 100;
   // Repeat
-  var repeat = 25;
+  var repeat = 15;
   // Use bounce in-out to soften it a little bit
   var ease = Phaser.Easing.Bounce.InOut;
   var autoStart = false;
