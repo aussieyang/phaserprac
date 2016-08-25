@@ -159,10 +159,7 @@ function update() {
   } else if (enemy1.x < 21) {
     enemy3.animations.play('right');
     enemy3.body.velocity.x = 120;
-  } else {
-    enemy3.animations.play('left');
-    enemy3.body.velocity.x = -120;
-  }
+  } 
 
   // Collide with stars
   game.physics.arcade.collide(stars, platforms);
