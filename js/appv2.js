@@ -124,7 +124,7 @@ function update() {
   // Stars collide with platforms
   game.physics.arcade.collide(stars, platforms);
   // Player collides with enemy1
-  game.physics.arcade.collide(player, enemy1, gameOver)
+  game.physics.arcade.collide(player, enemy1, gameOver, null, this)
 
   // Defining collectStar function
   function collectStar (player, star) {
