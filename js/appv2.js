@@ -146,7 +146,8 @@ function update() {
   // Defining gameOver
   function gameOver (player, enemy1) {
     console.log('gameOver triggered');
-    // Everything falls off
-    game.physics.arcade.checkCollision.down = false;
+    // Player falls off
+    player.body.gravity.y = 500;
+    player.body.collideWorldBounds = false;
   }
 }
