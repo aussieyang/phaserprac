@@ -42,7 +42,7 @@ function create() {
     player.body.gravity.y = 300;
     player.body.collideWorldBounds = true;
 
-  // Enemy
+  // Enemies
   enemy1 = game.add.sprite(760, 20, 'baddie')
     // Enemy animations using spritesheet and applies game physics
     enemy1.animations.add('left', [0, 1], 10, true);
@@ -52,6 +52,26 @@ function create() {
     enemy1.body.bounce.y = 0.2;
     enemy1.body.gravity.y = 500;
     enemy1.body.collideWorldBounds = true;
+
+  enemy2 = game.add.sprite(10, 20, 'baddie')
+    // Enemy animations using spritesheet and applies game physics
+    enemy2.animations.add('left', [0, 1], 10, true);
+    enemy2.animations.add('right', [2, 3], 10, true);
+    game.physics.arcade.enable(enemy2);
+    // Enemy physics properties.
+    enemy2.body.bounce.y = 0.2;
+    enemy2.body.gravity.y = 500;
+    enemy2.body.collideWorldBounds = true;
+
+  enemy3 = game.add.sprite(400, 20, 'baddie')
+    // Enemy animations using spritesheet and applies game physics
+    enemy3.animations.add('left', [0, 1], 10, true);
+    enemy3.animations.add('right', [2, 3], 10, true);
+    game.physics.arcade.enable(enemy3);
+    // Enemy physics properties.
+    enemy3.body.bounce.y = 0.2;
+    enemy3.body.gravity.y = 500;
+    enemy3.body.collideWorldBounds = true;
 
   // Creating keyboard entry
   cursors = game.input.keyboard.createCursorKeys();
@@ -123,6 +143,20 @@ function update() {
   } else if (enemy1.x < 405) {
     enemy1.animations.play('right');
     enemy1.body.velocity.x = 120;
+  }
+  if (enemy2.x > 200){
+    enemy2.animations.play('left');
+    enemy2.body.velocity.x = -120;
+  } else if (enemy2.x < 5) {
+    enemy2.animations.play('right');
+    enemy2.body.velocity.x = 120;
+  }
+  if (enemy3.x > 799){
+    enemy3.animations.play('left');
+    enemy3.body.velocity.x = -120;
+  } else if (enemy1.x < 5) {
+    enemy3.animations.play('right');
+    enemy3.body.velocity.x = 120;
   }
 
   // Collide with stars
