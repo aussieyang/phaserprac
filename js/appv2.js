@@ -1,8 +1,9 @@
 console.log('hey hey it works');
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-var score = 0
-var life = 3
+var score = 0;
+var life = 3;
+var executed = false;
 
 function preload() {
   game.load.image('sky', 'assets/sky.png');
@@ -94,7 +95,7 @@ function create() {
     scoretext.setTextBounds(0, 520, 800, 100);
     //  Doing the same for lives count
     lifelabel = game.add.text(-300, 0, "Lives: ", style);
-    lifetext = game.add.text(-250, 0, life, style);
+    lifetext = game.add.text(-240, 0, life, style);
     lifelabel.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     lifetext.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     //  We'll set the bounds to be from x0, y520 (top down) and be 800px wide by 100px high
@@ -189,6 +190,10 @@ function addQuake() {
 // Defining loseLife
 function loseLife (player, enemy1) {
   addQuake();
-  life = life - 1
-  lifetext.setText(life);
+  if (!executed) {
+    life = life - 1;
+    lifetext.setText(life);
+    executed = true;
+  }
+  executed = false;
 }
