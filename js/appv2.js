@@ -153,7 +153,7 @@ function collectStar (player, star) {
 
 // Defining loseLife
 function loseLife (player, enemy1) {
-  console.log('loselife working');
+  console.log('loselife working again');
   enemy1.kill();
   life = life - 1;
   lifetext.setText(life);
