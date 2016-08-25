@@ -149,7 +149,7 @@ function update() {
   if (enemy2.x > 200){
     enemy2.animations.play('left');
     enemy2.body.velocity.x = -120;
-  } else if (enemy2.x < 5) {
+  } else if (enemy2.x < 21) {
     enemy2.animations.play('right');
     enemy2.body.velocity.x = 120;
   }
@@ -159,6 +159,9 @@ function update() {
   } else if (enemy1.x < 5) {
     enemy3.animations.play('right');
     enemy3.body.velocity.x = 120;
+  } else {
+    enemy3.animations.play('left');
+    enemy3.body.velocity.x = -120;
   }
 
   // Collide with stars
