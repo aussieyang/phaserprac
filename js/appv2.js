@@ -168,7 +168,7 @@ function collectStar (player, star) {
 // Quake!!
 function addQuake() {
   // Define the camera offset for the quake
-  var rumbleOffset = 10;
+  var rumbleOffset = 0;
   // Move according to the camera's current position
   var properties = {
     x: game.camera.x - rumbleOffset
