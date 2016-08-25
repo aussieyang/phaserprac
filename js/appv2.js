@@ -195,5 +195,4 @@ function loseLife (player, enemy1) {
     lifetext.setText(life);
     executed = true;
   }
-  executed = false;
 }
