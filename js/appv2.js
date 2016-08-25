@@ -2,6 +2,7 @@ console.log('hey hey it works');
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 var score = 0
+var life = 3
 
 function preload() {
   game.load.image('sky', 'assets/sky.png');
@@ -83,15 +84,22 @@ function create() {
 
   // Setting style for text
   var style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
-    //  The Text is positioned at these coorindates within textbound
+    //  The Text is positioned at these coordinates within textbound
     scorelabel = game.add.text(-60, 0, "Your score is: ", style);
-    scoretext = game.add.text(65, 0, score, style);
+    scoretext = game.add.text(70, 0, score, style);
     scorelabel.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     scoretext.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     //  We'll set the bounds to be from x0, y520 (top down) and be 800px wide by 100px high
     scorelabel.setTextBounds(0, 520, 800, 100);
     scoretext.setTextBounds(0, 520, 800, 100);
-
+    //  Doing the same for lives count
+    lifelabel = game.add.text(-60, 0, "Your score is: ", style);
+    lifetext = game.add.text(70, 0, score, style);
+    lifelabel.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
+    lifetext.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
+    //  We'll set the bounds to be from x0, y520 (top down) and be 800px wide by 100px high
+    lifelabel.setTextBounds(0, 0, 800, 100);
+    lifetext.setTextBounds(0, 0, 800, 100);
 }
 
 function update() {
