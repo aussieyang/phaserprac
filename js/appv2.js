@@ -27,6 +27,9 @@ function create() {
   game.world.setBounds(x, y, w, h);
   // Make sure camera is at position (0,0)
   game.world.camera.position.set(0);
+  // Invisible walls
+  var invwall1 = phaser.add.sprite(0, 1150);
+  invwall1.body.debug = true;
 
   game.add.sprite(0, 0, 'sky');
 
