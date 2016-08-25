@@ -177,8 +177,8 @@ function addQuake() {
   var duration = 100;
   // Repeat
   var repeat = 25;
-  // // Use bounce in-out to soften it a little bit
-  // var ease = Phaser.Easing.Bounce.InOut;
+  // Use bounce in-out to soften it a little bit
+  var ease = Phaser.Easing.Bounce.InOut;
   var autoStart = false;
   // we want to go back to the original position
   var yoyo = true;
@@ -186,6 +186,7 @@ function addQuake() {
     .to(properties, duration, ease, autoStart, 0, 4, yoyo);
   // Let the earthquake begin!
   quake.start();
+  game.world.camera.position.set(0);
 }
 
 // Defining loseLife
