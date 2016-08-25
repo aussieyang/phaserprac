@@ -203,5 +203,5 @@ function loseLifeLeft (player, enemy) {
   enemy.kill();
   life = life - 1;
   lifetext.setText(life);
-  enemy.reset(50, 20);
+  enemy.reset(10, 20);
 }
