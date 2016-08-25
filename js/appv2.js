@@ -168,18 +168,14 @@ function addQuake() {
   // Really fast movement
   var duration = 100;
   // Repeat
-  var repeat = 4;
+  var repeat = 25;
   // Use bounce in-out to soften it a little bit
   var ease = Phaser.Easing.Bounce.InOut;
   var autoStart = false;
-  // Delay because we will run it indefinitely
-  var delay = 1000;
   // we want to go back to the original position
   var yoyo = true;
   var quake = game.add.tween(game.camera)
-    .to(properties, duration, ease, autoStart, delay, 4, yoyo);
-  // Recursion to run indefinitely
-  quake.onComplete.addOnce(addQuake);
+    .to(properties, duration, ease, autoStart, 0, 4, yoyo);
   // Let the earthquake begin!
   quake.start();
 }
