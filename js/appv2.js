@@ -144,25 +144,23 @@ function update() {
   game.physics.arcade.overlap(player, stars, collectStar, null, this);
   // Stars collide with platforms
   game.physics.arcade.collide(stars, platforms);
-  // Player triggers gameover when contact with enemy1
-  game.physics.arcade.overlap(player, enemy1, gameOver, null, this)
+  // Player triggers loseLife when contact with enemy1
+  game.physics.arcade.overlap(player, enemy1, loseLife, null, this)
+}
 
-  // Defining collectStar function
-  function collectStar (player, star) {
- 	 	// Removes the star from the screen
-  	star.kill();
-    // Updating score variable
-    score = score + 1;
-    // Reflecting in the text
-    scoretext.setText(score);
+// Defining collectStar function
+function collectStar (player, star) {
+  // Removes the star from the screen
+  star.kill();
+  // Updating score variable
+  score = score + 1;
+  // Reflecting in the text
+  scoretext.setText(score);
 
-    // Create new star
-    star = stars.create(Math.floor(Math.random() * 750), 0, 'star');
-    //  Let gravity do its thing
-    star.body.gravity.y = 200;
-    //  This just gives each star a slightly random bounce value
-    star.body.bounce.y = 0.7 + Math.random() * 0.2;
-	}
+  // Create new star
+  star = stars.create(Math.floor(Math.random() * 750), 0, 'star');
+  star.body.gravity.y = 200;
+  star.body.bounce.y = 0.7 + Math.random() * 0.2;
 }
 
 // Quake!!
@@ -188,9 +186,9 @@ function addQuake() {
   quake.start();
 }
 
-// Defining gameOver
-function gameOver (player, enemy1) {
-  console.log('gameOver triggered');
-  // Quake!
+// Defining loseLife
+function loseLife (player, enemy1) {
   addQuake();
+  life = life - 1
+  lifetext.setText(life);
 }
