@@ -24,7 +24,7 @@ function create() {
   var w = game.world.width + margin * 2;
   var h = game.world.height + margin * 2;
   // Not necessary to increase height, we do it to keep uniformity
-  game.world.setBounds(x, y, w, h);
+  game.world.setBounds(0, y, w - margin, h);
   // Make sure camera is at position (0,0)
   game.world.camera.position.set(0);
 
